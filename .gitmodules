@@ -1,0 +1,3 @@
+[submodule "UP/repo"]
+	path = UP/repo
+	url = https://github.com/magdalenabiernat/UP.git
