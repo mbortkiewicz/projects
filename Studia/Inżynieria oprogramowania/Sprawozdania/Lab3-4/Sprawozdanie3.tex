@@ -4,6 +4,7 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{subfig}
+\usepackage{multirow}
 \usepackage{graphicx}
 
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3.5cm, bottom=3.5cm, headsep=1.2cm]{geometry}
@@ -47,18 +48,30 @@ przypadków użycia
 		\item Zdefiniowanie aktorów.
 		\item Wykonanie scenariuszy przypadków użycia.
 	\end{itemize}
-\newpage
+
 	\section{Laboratorium}
 	\subsection{Wykonanie diagramu przypadków użycia}
 	\begin{figure}[!ht]
 	\centering
-	\includegraphics[height=12cm]{diagram.png}
+	\includegraphics[height=10cm]{diagram.png}
 	\caption{Stworzony diagram przypadków użycia}
 	\label{fig:obrazek 1}
 	\end{figure}
 	\subsection{Zdefiniowanie aktorów}
-
-
+	
+\begin{tabular}{| p{2,5cm} | p{6,5cm} | p{6cm} |} \hline 
+	AKTOR & OPIS & PRZYPADKI UŻYCIA   \\ \hline
+	\multirow{3}{*}{Klient} & Klient wypożycza za pośrednictwem wypożyczającego & 
+	Obliczanie terminu zwrotu i kosztów wypożyczenia \par
+	Wypożyczenie \par
+	Wystawienie paragonu/faktury za wypożyczenie \\ 
+	\hline
+	\multirow{5}{*}{Wypożyczający} & Wypożyczający wypożycza klientowi towar korzystając z aplikacji.  Aplikacja wylicza termin i koszt wypożyczenia Może też wyszukiwać klienta i artykuły. Może też wystawić rachunek lub fakturę. Wypożyczający przyjmuje również zwroty i aplikacja wylicza wtedy przedawnienie i koszt przetrzymania. & Przyjęcie towaru\par
+	Obliczenie przedawnienia i kosztu przetrzymania\par
+	Szukanie pozycji\par
+	Szukanie klienta\par
+	Szukanie wypożyczenia \\ \hline
+\end{tabular}
 \subsection{Wykonanie scenariuszy użycia}	
 \subsubsection{Wypożyczenie: Obliczanie terminu zwrotu i kosztów wypożyczenia}
 \begin{enumerate}
