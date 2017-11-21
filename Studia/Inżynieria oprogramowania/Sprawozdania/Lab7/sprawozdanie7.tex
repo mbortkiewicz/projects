@@ -59,13 +59,41 @@ identyfikacji klas, reprezentujących logikę biznesową projektowanego systemu.
 	\label{fig:obrazek 1}
 \end{figure}
 	\newpage
-	\subsection{Analiza wspójności}
-	Wykryto ... główne klasy typu „Entity” ze względu na odpowiedzialność:
+	\subsection{Opracowanie diagramów}
+	\subsubsection{Analiza wspójności}
+	Wykryto 3 główne klasy typu „Entity” ze względu na odpowiedzialność:
 	\begin{itemize}
-	\item TWypozyczalnia (PU: )
-	\item ...
-	\end{itemize}
+	\item TWypozyczalnia (PU: Wypożyczenie, PU Przyęcie towaru)
+	\item TWypożyczenie (PU: Obliczanie terminu zwrotu i kosztów wypożczenia)
+	\item TFabrtka (PU: Wstawienei paragonu/faktury za wypożczenie)
+	\end{itemize}	
+TWypozyczenie
+- obliczanie terminu zwrotu i kosztów wypożyczenia
 
-		
-	
+TWypożyczalnia
+- wypożyczenie
+- przyjęcie towaru
+
+TFabryka
+- wystawienie paragonu/faktury za wypożyczenie
+
+Nie znalazłam tego w diagramie klas
+?- obliczanie przedawnienia i kosztu przetrzymania
+?- wystawienie potwierdzenia za przetrzymanie
+?- szukanie wypożyczenia
+?- szukanie klienta
+?- szukanie pozycji
+\subsubsection{Analiza zmienności}
+Wykryto rozszrzenie klasy TProdukt - Nosnik
+Wykryto rozszrzenie klasy TTytul - Gatunek
+Wykryto związki między klasami:
+\begin{itemize}
+	\item Klasa TMagzayn zawiere listy obiektów klas TProdukt i TTytul
+	\item Klasa TKartoteka zawiera listę obiektów klasy TKlient
+	\item Klasa TFabrtyka tworzy nowe obiekty klas: TTytul, TProdukt, TKlient oraz TWypozyczenie
+	\item Klasa TWypozyczalnia rozpoczyna cały proces wypożyczenia i zwrotu produktu
+	\item Klasa TFaktura pobiera dane z TWypozyczenie, żeby wystawić fakturę
+	\item Klasa TWypozyczenie pobiera dane z TProdukt, żeby zainicjować wypożczenie produktu
+	\item Klasa TKartoteka zawiera listę obiektów klasy TKlients
+\end{itemize}	
 \end{document}
