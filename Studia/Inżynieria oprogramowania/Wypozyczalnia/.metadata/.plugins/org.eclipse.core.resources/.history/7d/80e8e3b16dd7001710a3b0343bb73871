@@ -1,0 +1,56 @@
+import java.util.List;
+
+public class TWypozyczalnia {
+
+	private TKartoteka kartoteka;
+	private TMagazyn magazyn;
+	private List<TFaktura> faktury;
+	private List<TWypozyczenie> wypozyczenie;
+	
+	public TWypozyczalnia()
+	{
+		super();
+	}
+	
+	public static void main(String[] t)
+	{
+		return;
+	}
+	
+	public boolean zwrot(TKlient klient, TProdukt[] produkty)
+	{
+		TWypozyczenie wypozyczenie = szukaj_TWypozyczenie(produkty[0], klient);
+		
+		if(wypozyczenie == null)
+			return false;
+		else
+		{
+			
+		}
+	}
+	
+	public boolean wypozyczenie(TKlient klient, TProdukt[] produkty)
+	{
+		return false;
+	}
+	
+	public TFaktura szukaj_TFakture(TFaktura faktura)
+	{
+		return null;
+	}
+	
+	public TWypozyczenie szukaj_TWypozyczenie(TProdukt produkt, TKlient klient)
+	{
+		return null;
+	}
+	
+	public boolean przyjmij_towar(TProdukt[] produkty, TWypozyczenie wypozyczenie)
+	{
+		return false;
+	}
+	
+	private boolean produkt_na_pozyci(TPozycja pozycja, TProdukt[] Produkty)
+	{
+		return false;
+	}
+}

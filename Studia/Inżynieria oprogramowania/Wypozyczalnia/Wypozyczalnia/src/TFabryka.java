@@ -1,0 +1,58 @@
+import java.util.Date;
+import java.util.List;
+
+public class TFabryka {
+
+	public TTytul nowyTytul(String[] data)
+	{
+		return null;
+	}
+	
+	public TProdukt nowyProdukt(String[] data)
+	{
+		return null;
+	}
+	
+	public TKlient nowyKlient(String[] data)
+	{
+		return null;
+	}
+	
+	public TFaktura nowaFaktura(Object[] data)
+	{
+		TFaktura faktura = new TFaktura();
+		
+		faktura.setKwotaNetto((float) data[0]);
+		faktura.setKwotaButto((float) data[1]);
+		faktura.setKlient((TKlient) data[2]);
+		faktura.setWypozyczenie((TWypozyczenie) data[3]);
+		faktura.setData((Date) data[4]);
+		
+		return faktura;
+	}
+	
+	public TWypozyczenie noweWypozyczenie(Object[] data)
+	{
+		TWypozyczenie wypozyczenie = new TWypozyczenie();
+		
+		wypozyczenie.setIloscDni((int) data[0]); 
+		wypozyczenie.setPoczatek((Date) data[1]);
+		wypozyczenie.setKoniec((Date) data[2]);
+		wypozyczenie.setPozycje((List<TPozycja>) data[3]);
+		wypozyczenie.setKlient((TKlient) data[4]);
+		wypozyczenie.setFaktura((TFaktura) data[5]);
+		
+		return wypozyczenie;
+	}
+	
+	public TPozycja nowaPozycja(Object[] data)
+	{
+		TPozycja pozycja = new TPozycja();
+		
+		pozycja.setProdukt((TProdukt) data[0]);
+		pozycja.setStawka((float) data[1]);
+		pozycja.setOddane((boolean) data[2]);
+		
+		return pozycja;
+	}
+}

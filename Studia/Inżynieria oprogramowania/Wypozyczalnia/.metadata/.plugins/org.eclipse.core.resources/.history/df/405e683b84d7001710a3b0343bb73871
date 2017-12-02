@@ -1,0 +1,33 @@
+
+public class TFabryka {
+
+	public TTytul nowyTytul(String[] data)
+	{
+		return null;
+	}
+	
+	public TProdukt nowyProdukt(String[] data)
+	{
+		return null;
+	}
+	
+	public TKlient nowyKlient(String[] data)
+	{
+		return null;
+	}
+	
+	public TFaktura nowaFaktura(String[] data)
+	{
+		return null;
+	}
+	
+	public TWypozyczenie noweWypozyczenie(Object[] data)
+	{
+		return null;
+	}
+	
+	public TPozycja nowaPozycja(Object[] data)
+	{
+		return null;
+	}
+}

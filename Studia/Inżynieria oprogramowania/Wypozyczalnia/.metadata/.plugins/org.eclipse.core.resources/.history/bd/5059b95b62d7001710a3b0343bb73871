@@ -1,0 +1,40 @@
+import java.util.List;
+
+public class TWypozyczalnia {
+
+	private TKartoteka kartoteka;
+	private TMagazyn magazyn;
+	private List<TFaktura> faktury;
+	private List<TWypozyczenie> wypozyczenie;
+	
+	public TWypozyczalnia()
+	{
+		super();
+	}
+	
+	public static void main(String[] t)
+	{
+		System.out.println("TAK");
+		return;
+	}
+	
+	public boolean zwrot(TKlient klient, TProdukt[] produkty)
+	{
+		return false;
+	}
+	
+	public boolean wypozyczenie(TKlient klient, TProdukt[] produkty)
+	{
+		return false;
+	}
+	
+	public TFaktura szukaj_TFakture(TFaktura faktura)
+	{
+		return null;
+	}
+	
+	public TWypozyczenie szukaj_TWypozyczenie(TProdukt produkt, TKlient klient)
+	{
+		return null;
+	}
+}
