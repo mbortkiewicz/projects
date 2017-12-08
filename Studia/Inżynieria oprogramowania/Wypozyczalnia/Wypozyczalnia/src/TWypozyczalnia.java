@@ -89,28 +89,75 @@ public class TWypozyczalnia {
 		return null;
 	}
 	
+	//to pisa³am
 	public TWypozyczenie szukaj_TWypozyczenie(TProdukt produkt, TKlient klient)
 	{
+		magazyn.szukaj_TProdukt(produkt);
+		if(produkt==null) 
+		{
+		kartoteka.szukaj_TKlienta(klient);
+		if(klient==null)
+		{
+			return null;
+		}
+		}
+		for(wypozyczenie in wypozyczenia)
+		{
+			if(wypozyczenie.getKoniec()==null)
+			{
+				if(produkt==null) 
+				{
+				for(pozycja in wypozyczenie.pozycje)
+				{
+					if(pozycja.produkt==produkt)
+					{
+						
+					return wypozyczenie;
+					}
+				if(klient1=null&&wypozyczenie.klient==klient) 
+				{
+				return wypozyczenie;	
+				}
+				}
+				}
+			}
+		}
 		return null;
 	}
 	
+	//to pisa³am
 	public boolean przyjmij_towar(TProdukt[] produkty, TWypozyczenie wypozyczenie)
 	{
 		TKalkulator kalkulator = new TKalkulator();
 		int przetrzymanie = daysBetween(Calendar.getInstance().getTimeInMillis(),wypozyczenie.getPoczatek().getTime()) - wypozyczenie.getIloscDni();
-		
+		float kwota;
 		if (przetrzymanie > 0)
 		{
 			for(TPozycja pozycja : wypozyczenie.getPozycje())
 			{
 				if(produkt_na_pozycji(pozycja, produkty))
 				{
-					kalkulator.oblicz_stawke(przetrzymanie, pozycja.getStawka());
+					kwota = kalkulator.oblicz_stawke(przetrzymanie, pozycja.getStawka());
+				}
+				float kwota = kalkulator.getPamiec();
+				TPotwierdzenie potwierdzenie;
+				potwierdzenie.setKlient(klient);
+				potwierdzenie.setData(przetrzymanie);
+				potwierdzenie.setKwota(kwota);
+				TKlient klient;
+				// dodaj potwierdzenie
+			}
+			for(TPozycja pozycja : wypozyczenie.getPozycje())
+			{
+				boolean produkt = produkt_na_pozycji(pozycja, produkty);
+				if(produkt)
+				{
+					pozycja.setOddane(true);
+					TProdukt produkt;
+					//setWypozyczony
 				}
 			}
-			
-			float kwota = kalkulator.getPamiec();
-			
+			return true;			
 		}
 		
 		return false;
