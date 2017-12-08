@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Date;
+import 
 
 public class TWypozyczalnia {
 
@@ -94,6 +96,23 @@ public class TWypozyczalnia {
 	
 	public boolean przyjmij_towar(TProdukt[] produkty, TWypozyczenie wypozyczenie)
 	{
+		TKalkulator kalkulator = new TKalkulator();
+		int przetrzymanie = daysBetween(Calendar.getInstance().getTimeInMillis(),wypozyczenie.getPoczatek().getTime()) - wypozyczenie.getIloscDni();
+		
+		if (przetrzymanie > 0)
+		{
+			for(TPozycja pozycja : wypozyczenie.getPozycje())
+			{
+				if(produkt_na_pozycji(pozycja, produkty))
+				{
+					kalkulator.oblicz_stawke(przetrzymanie, pozycja.getStawka());
+				}
+			}
+			
+			float kwota = kalkulator.getPamiec();
+			
+		}
+		
 		return false;
 	}
 	
@@ -101,4 +120,8 @@ public class TWypozyczalnia {
 	{
 		return false;
 	}
+	
+	private int daysBetween(long t1, long t2) {
+	    return (int) ((t2 - t1) / (1000 * 60 * 60 * 24));
+	} 
 }

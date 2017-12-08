@@ -55,4 +55,11 @@ public class TFabryka {
 		
 		return pozycja;
 	}
+	
+	public TPotwierdzenie nowePotwierdzenie(Object[] data)
+	{
+		TPotwierdzenie potwierdzenie = new TPotwierdzenie();
+		
+		
+	}
 }
