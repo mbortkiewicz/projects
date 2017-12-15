@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Date;
-import 
 
 public class TWypozyczalnia {
 
@@ -89,47 +88,43 @@ public class TWypozyczalnia {
 		return null;
 	}
 	
-	//to pisa³am
 	public TWypozyczenie szukaj_TWypozyczenie(TProdukt produkt, TKlient klient)
 	{
-		magazyn.szukaj_TProdukt(produkt);
+		produkt = magazyn.szukaj_TProdukt(produkt);
+		
 		if(produkt==null) 
 		{
-		kartoteka.szukaj_TKlienta(klient);
-		if(klient==null)
-		{
-			return null;
-		}
-		}
-		for(wypozyczenie in wypozyczenia)
-		{
-			if(wypozyczenie.getKoniec()==null)
+			klient = kartoteka.szukaj_TKlienta(klient);
+			if(klient==null)
 			{
-				if(produkt==null) 
+				return null;
+			}
+		}
+		
+		for(TWypozyczenie wypozyczenie : wypozyczenia)
+		{
+			if(wypozyczenie.getKoniec()==null) 
+			{
+				if(produkt != null)
 				{
-				for(pozycja in wypozyczenie.pozycje)
-				{
-					if(pozycja.produkt==produkt)
+					for(TPozycja pozycja : wypozyczenie.getPozycje())
 					{
-						
+						if(pozycja.getProdukt() == produkt)
+							return wypozyczenie;
+					}					
+				}
+				else if(klient != null && wypozyczenie.getKlient() == klient)
 					return wypozyczenie;
-					}
-				if(klient1=null&&wypozyczenie.klient==klient) 
-				{
-				return wypozyczenie;	
-				}
-				}
-				}
 			}
 		}
 		return null;
 	}
 	
-	//to pisa³am
 	public boolean przyjmij_towar(TProdukt[] produkty, TWypozyczenie wypozyczenie)
 	{
 		TKalkulator kalkulator = new TKalkulator();
-		int przetrzymanie = daysBetween(Calendar.getInstance().getTimeInMillis(),wypozyczenie.getPoczatek().getTime()) - wypozyczenie.getIloscDni();
+		int przetrzymanie = daysBetween(Calendar.getInstance().getTimeInMillis(), wypozyczenie.getPoczatek().getTime()) - 
+								wypozyczenie.getIloscDni();
 		float kwota;
 		if (przetrzymanie > 0)
 		{
@@ -139,28 +134,29 @@ public class TWypozyczalnia {
 				{
 					kwota = kalkulator.oblicz_stawke(przetrzymanie, pozycja.getStawka());
 				}
-				float kwota = kalkulator.getPamiec();
-				TPotwierdzenie potwierdzenie;
-				potwierdzenie.setKlient(klient);
-				potwierdzenie.setData(przetrzymanie);
-				potwierdzenie.setKwota(kwota);
-				TKlient klient;
-				// dodaj potwierdzenie
+				
+				kwota = kalkulator.getPamiec();
+
+				TFabryka fabryka = new TFabryka();
+				TPotwierdzenie potwierdzenie = fabryka.nowePotwierdzenie(new Object[]{Calendar.getInstance().getTimeInMillis(), 
+																						wypozyczenie.getKlient(), 
+																						kwota, 
+																						wypozyczenie});
+				wypozyczenie.getKlient().dodaj_potwierdzenie(potwierdzenie);
 			}
+			
 			for(TPozycja pozycja : wypozyczenie.getPozycje())
 			{
 				boolean produkt = produkt_na_pozycji(pozycja, produkty);
 				if(produkt)
 				{
 					pozycja.setOddane(true);
-					TProdukt produkt;
-					//setWypozyczony
+					pozycja.getProdukt().setWypozyczony(false);
 				}
-			}
-			return true;			
+			}		
 		}
 		
-		return false;
+		return true;
 	}
 	
 	private boolean produkt_na_pozycji(TPozycja pozycja, TProdukt[] Produkty)

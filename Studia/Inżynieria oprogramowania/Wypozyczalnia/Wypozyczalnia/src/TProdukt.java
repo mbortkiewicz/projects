@@ -12,9 +12,17 @@ public class TProdukt {
 	private float stawka;
 	private boolean aktywny;
 	private Nosnik nosnik;
+	private boolean wypozyczony;
 		
 	public TProdukt() {
 		super();
+	}
+	
+	public boolean isWypozyczony() {
+		return wypozyczony;
+	}
+	public void setWypozyczony(boolean wypozyczony) {
+		this.wypozyczony = wypozyczony;
 	}
 	public TTytul getTytul() {
 		return tytul;

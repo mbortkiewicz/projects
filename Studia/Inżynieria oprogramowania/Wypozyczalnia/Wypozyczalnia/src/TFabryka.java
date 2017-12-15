@@ -60,6 +60,12 @@ public class TFabryka {
 	{
 		TPotwierdzenie potwierdzenie = new TPotwierdzenie();
 		
+		potwierdzenie.setData((Date) data[0]);
+		potwierdzenie.setKlient((TKlient) data[1]);
+		potwierdzenie.setKwota((float) data[2]);
+		potwierdzenie.setWypozyczenie((TWypozyczenie) data[3]);
+		
+		return potwierdzenie;
 		
 	}
 }

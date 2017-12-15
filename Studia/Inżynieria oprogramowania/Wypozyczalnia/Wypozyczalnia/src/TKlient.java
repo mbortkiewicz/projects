@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class TKlient {
 	private String imie;
@@ -6,6 +7,8 @@ public class TKlient {
 	private byte[] PESEL;
 	private String telefon;
 	private String mail;
+	private List<TPotwierdzenie> potwierdzenia;
+	
 	public String getImie() {
 		return imie;
 	}
@@ -46,5 +49,10 @@ public class TKlient {
 	private byte obliczSumeKontrolna(byte[] PESEL)
 	{
 		return 0;
+	}
+	
+	public void dodaj_potwierdzenie(TPotwierdzenie potwierdzenie)
+	{
+		potwierdzenia.add(potwierdzenie);
 	}
 }
