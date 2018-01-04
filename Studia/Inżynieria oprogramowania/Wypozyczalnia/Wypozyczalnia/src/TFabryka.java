@@ -3,19 +3,44 @@ import java.util.List;
 
 public class TFabryka {
 
-	public TTytul nowyTytul(String[] data)
+	public TTytul nowyTytul(Object[] data)
 	{
-		return null;
+		TTytul tytul = new TTytul();
+		
+		tytul.setGatunek((TTytul.Gatunek)data[0]);
+		tytul.setTytul((String)data[1]);
+		tytul.setRokWydania((short)data[2]);
+		tytul.setRezyser((String)data[3]);
+		
+		return tytul;
 	}
 	
-	public TProdukt nowyProdukt(String[] data)
+	public TProdukt nowyProdukt(Object[] data)
 	{
-		return null;
+		TProdukt produkt = new TProdukt();
+		
+		produkt.setTytul((TTytul)data[0]);
+		produkt.setRef((int)data[1]);
+		produkt.setStawka((float)data[2]);
+		produkt.setAktywny((boolean)data[3]);
+		produkt.setNosnik((TProdukt.Nosnik)data[4]);
+		produkt.setWypozyczony(false);
+		
+		return produkt;
 	}
 	
-	public TKlient nowyKlient(String[] data)
+	public TKlient nowyKlient(Object[] data)
 	{
-		return null;
+		TKlient klient = new TKlient();
+		
+		klient.setImie((String)data[0]);
+		klient.setNazwisko((String)data[1]);
+		klient.setAdres((String)data[2]);
+		klient.setPESEL((byte[])data[3]);
+		klient.setTelefon((String)data[4]);
+		klient.setMail((String)data[5]);
+		
+		return klient;
 	}
 	
 	public TFaktura nowaFaktura(Object[] data)
@@ -66,6 +91,5 @@ public class TFabryka {
 		potwierdzenie.setWypozyczenie((TWypozyczenie) data[3]);
 		
 		return potwierdzenie;
-		
 	}
 }

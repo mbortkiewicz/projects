@@ -7,6 +7,28 @@ public class TProdukt {
 		Bluray
 	}
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ref;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TProdukt other = (TProdukt) obj;
+		if (ref != other.ref)
+			return false;
+		return true;
+	}
+	
 	private TTytul tytul;
 	private int ref;
 	private float stawka;

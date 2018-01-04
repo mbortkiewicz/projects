@@ -123,27 +123,26 @@ public class TWypozyczalnia {
 	public boolean przyjmij_towar(TProdukt[] produkty, TWypozyczenie wypozyczenie)
 	{
 		TKalkulator kalkulator = new TKalkulator();
-		int przetrzymanie = daysBetween(Calendar.getInstance().getTimeInMillis(), wypozyczenie.getPoczatek().getTime()) - 
-								wypozyczenie.getIloscDni();
+		TFabryka fabryka = new TFabryka();
+		int przetrzymanie = daysBetween(Calendar.getInstance().getTimeInMillis(), wypozyczenie.getPoczatek().getTime()) - wypozyczenie.getIloscDni();
 		float kwota;
 		if (przetrzymanie > 0)
 		{
 			for(TPozycja pozycja : wypozyczenie.getPozycje())
 			{
-				if(produkt_na_pozycji(pozycja, produkty))
+				if(produkt_na_pozycji(pozycja, produkty) && pozycja.getStawka() > 0)
 				{
-					kwota = kalkulator.oblicz_stawke(przetrzymanie, pozycja.getStawka());
+					kalkulator.oblicz_stawke(przetrzymanie, pozycja.getStawka());
 				}
-				
-				kwota = kalkulator.getPamiec();
-
-				TFabryka fabryka = new TFabryka();
-				TPotwierdzenie potwierdzenie = fabryka.nowePotwierdzenie(new Object[]{Calendar.getInstance().getTimeInMillis(), 
-																						wypozyczenie.getKlient(), 
-																						kwota, 
-																						wypozyczenie});
-				wypozyczenie.getKlient().dodaj_potwierdzenie(potwierdzenie);
 			}
+			
+			kwota = kalkulator.getPamiec();
+			TPotwierdzenie potwierdzenie = fabryka.nowePotwierdzenie(new Object[]{Calendar.getInstance().getTimeInMillis(), 
+																					wypozyczenie.getKlient(), 
+																					kwota, 
+																					wypozyczenie});
+			
+			wypozyczenie.getKlient().dodaj_potwierdzenie(potwierdzenie);
 			
 			for(TPozycja pozycja : wypozyczenie.getPozycje())
 			{

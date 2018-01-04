@@ -10,17 +10,29 @@ public class TKartoteka {
 	
 	public TKlient szukaj_TKlienta(TKlient klient) 
 	{
+		for(TKlient k : klienci)
+		{
+			if(k.equals(klient))
+				return k;
+		}
 		return null;
 	}
 	
-	public String dodaj_TKlienta(String[] data)
+	public TKlient dodaj_TKlienta(Object[] data)
 	{
-		return null;
+		TFabryka fabryka = new TFabryka();
+		TKlient klient = fabryka.nowyKlient(data);
+		
+		return dodaj_TKlienta(klient);
 	}
 	
 	public TKlient dodaj_TKlienta(TKlient klient)
 	{
-		return null;
+		if(szukaj_TKlienta(klient) != null)
+			return null;
+		
+		klienci.add(klient);
+		return klient;
 	}
 
 }
