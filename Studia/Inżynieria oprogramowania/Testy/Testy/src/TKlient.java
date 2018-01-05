@@ -36,7 +36,7 @@ public class TKlient {
 		
 		TKlient other = (TKlient) obj;
 		
-		// jako pierwsze porównuejmy pesele
+		// jako pierwsze porï¿½wnuejmy pesele
 		if (other.PESEL != null && !Arrays.equals(PESEL, other.PESEL))
 			return false;
 		
@@ -88,7 +88,7 @@ public class TKlient {
 		this.mail = mail;
 	}
 	
-	private byte obliczSumeKontrolna(byte[] PESEL)
+	public byte obliczSumeKontrolna(byte[] PESEL)
 	{
 		int suma = PESEL[0] + PESEL[4] + PESEL[8] +
 				3 * (PESEL[1] + PESEL[5] + PESEL[9]) + 
