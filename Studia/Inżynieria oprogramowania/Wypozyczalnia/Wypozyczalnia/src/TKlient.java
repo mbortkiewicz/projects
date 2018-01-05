@@ -95,7 +95,7 @@ public class TKlient {
 				7 * (PESEL[2] + PESEL[6]) +
 				9 * (PESEL[3] + PESEL[7]);
 				
-		return 0;
+		return (byte) (suma % 10);
 	}
 	
 	public void dodaj_potwierdzenie(TPotwierdzenie potwierdzenie)

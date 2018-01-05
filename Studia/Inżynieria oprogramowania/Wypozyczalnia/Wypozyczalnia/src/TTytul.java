@@ -15,7 +15,12 @@ public class TTytul {
 		Pornograficzny,
 		Wojenny,
 		Historyczny,
-		Western
+		Western;
+		
+		@Override
+		public String toString(){
+			return super.toString();
+		}
 	}
 	
 	private Gatunek gatunek;
@@ -49,5 +54,11 @@ public class TTytul {
 	}
 	public void setRezyser(String rezyser) {
 		this.rezyser = rezyser;
+	}
+	
+	@Override
+	public String toString() {
+		return "TTytul [tytul=" + tytul + ", gatunek=" + gatunek + ", rokWydania=" + rokWydania + ", rezyser=" + rezyser
+				+ "]";
 	}
 }

@@ -158,8 +158,13 @@ public class TWypozyczalnia {
 		return true;
 	}
 	
-	private boolean produkt_na_pozycji(TPozycja pozycja, TProdukt[] Produkty)
+	private boolean produkt_na_pozycji(TPozycja pozycja, TProdukt[] produkty)
 	{
+		for(TProdukt p : produkty)
+		{
+			if(p.equals(pozycja.getProdukt()))
+				return true;			
+		}
 		return false;
 	}
 	

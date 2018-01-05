@@ -4,7 +4,12 @@ public class TProdukt {
 	enum Nosnik {
 		VHS,
 		DVD,
-		Bluray
+		Bluray;
+		
+		@Override
+		public String toString(){
+			return super.toString();
+		}
 	}
 	
 	@Override
@@ -13,6 +18,12 @@ public class TProdukt {
 		int result = 1;
 		result = prime * result + ref;
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "TProdukt [ref=" + ref + ", tytul=" + tytul + ", stawka=" + stawka + ", nosnik=" + nosnik
+				+ ", wypozyczony=" + wypozyczony + "]";
 	}
 
 	@Override
@@ -75,5 +86,11 @@ public class TProdukt {
 	}
 	public void setNosnik(Nosnik nosnik) {
 		this.nosnik = nosnik;
+	}
+	public boolean getWypozyczony(){
+		return wypozyczony;
+	}
+	public boolean getAktywny(){
+		return aktywny;
 	}
 }

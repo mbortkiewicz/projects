@@ -7,15 +7,16 @@ public class TWypozyczenie {
 	private Date koniec;
 	
 	private List<TPozycja> pozycje;
+	private TKlient klient;
+	private TFaktura faktura;
+	
+	
 	public List<TPozycja> getPozycje() {
 		return pozycje;
 	}
 	public void setPozycje(List<TPozycja> pozycje) {
 		this.pozycje = pozycje;
 	}
-	private TKlient klient;
-	private TFaktura faktura;
-	
 	public TWypozyczenie() {
 		super();
 		// TODO Auto-generated constructor stub
