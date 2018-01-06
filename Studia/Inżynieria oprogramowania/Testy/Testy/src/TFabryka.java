@@ -36,7 +36,7 @@ public class TFabryka {
 		klient.setImie((String)data[0]);
 		klient.setNazwisko((String)data[1]);
 		klient.setAdres((String)data[2]);
-                if(klient.obliczSumeKontrolna((byte[])data[3]) != ((byte[])data[3])[10])
+                if(data[3] != null && klient.obliczSumeKontrolna((byte[])data[3]) != ((byte[])data[3])[10])
                     throw new Exception("Podano niewłaściwy pesel");
 		klient.setPESEL((byte[])data[3]);
 		klient.setTelefon((String)data[4]);
