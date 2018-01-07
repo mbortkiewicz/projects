@@ -28,6 +28,8 @@ public class Dane {
        {tytul, 562415, 1.8, TProdukt.Nosnik.VHS},
        {tytul, 478632, 4.5, TProdukt.Nosnik.Bluray},
        {tytul, 451203, 2.9, TProdukt.Nosnik.DVD},
-       {tytul, 412563, 1.3, TProdukt.Nosnik.VHS}
+       {tytul, 412563, 1.3, TProdukt.Nosnik.VHS},
+       {tytul,"" ,"" , TProdukt.Nosnik.Bluray},
+       {tytul, 456123, 2.7, TProdukt.Nosnik.DVD}            
     };
 }

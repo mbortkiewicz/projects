@@ -70,7 +70,7 @@ public class TFabrykaTest {
      * Test of nowyKlient method, of class TFabryka.
      */
     @Test
-    public void testNowyKlient() {
+    public void testNowyKlient() throws Exception {
         System.out.println("nowyKlient");
         Object[] data = null;
         TFabryka instance = new TFabryka();

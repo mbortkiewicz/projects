@@ -18,7 +18,7 @@ public class TKartoteka {
 		return null;
 	}
 	
-	public TKlient dodaj_TKlienta(Object[] data)
+	public TKlient dodaj_TKlienta(Object[] data) throws Exception
 	{
 		TFabryka fabryka = new TFabryka();
 		TKlient klient = fabryka.nowyKlient(data);
