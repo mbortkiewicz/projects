@@ -1,7 +1,9 @@
+package mypackage;
+
 
 public class TProdukt {
 	
-	enum Nosnik {
+	public enum Nosnik {
 		VHS,
 		DVD,
 		Bluray;

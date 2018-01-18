@@ -1,3 +1,5 @@
+package mypackage;
+
 import java.util.*;
 
 public class TKlient {
@@ -90,10 +92,10 @@ public class TKlient {
 	
 	public byte obliczSumeKontrolna(byte[] PESEL)
 	{
-		int suma = PESEL[0] + PESEL[4] + PESEL[8] +
-				3 * (PESEL[1] + PESEL[5] + PESEL[9]) + 
-				7 * (PESEL[2] + PESEL[6]) +
-				9 * (PESEL[3] + PESEL[7]);
+		int suma = 9* (PESEL[0] + PESEL[4] + PESEL[8]) +
+				7 * (PESEL[1] + PESEL[5] + PESEL[9]) + 
+				3 * (PESEL[2] + PESEL[6]) +
+				1 * (PESEL[3] + PESEL[7]);
 				
 		return (byte) (suma % 10);
 	}

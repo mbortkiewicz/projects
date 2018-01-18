@@ -1,3 +1,5 @@
+package mypackage;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -15,7 +17,7 @@ public class TWypozyczalnia {
 		super();
 	}
 	
-	public static void main(String[] t)
+	public static void main(String[] t) throws Exception
 	{
 		return;
 	}
@@ -33,7 +35,7 @@ public class TWypozyczalnia {
 		}
 	}
 	
-	public boolean wypozyczenie(TKlient klient, TProdukt[] produkty, int ilosc_dni)
+	public boolean wypozyczenie(TKlient klient, TProdukt[] produkty, int ilosc_dni) throws Exception
 	{
 		TKlient nowyKlient;
 		TKalkulator kalkulator = new TKalkulator(); 

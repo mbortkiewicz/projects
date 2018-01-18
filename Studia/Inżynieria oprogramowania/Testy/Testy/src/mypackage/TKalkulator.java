@@ -1,3 +1,5 @@
+package mypackage;
+
 
 public class TKalkulator {
 	private float pamiec = 0;

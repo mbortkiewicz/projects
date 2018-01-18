@@ -1,3 +1,5 @@
+package mypackage;
+
 
 public class TTytul {
 
