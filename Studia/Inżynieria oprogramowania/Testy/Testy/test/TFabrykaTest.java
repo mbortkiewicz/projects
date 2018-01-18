@@ -39,7 +39,7 @@ public class TFabrykaTest {
     /**
      * Test of nowyTytul method, of class TFabryka.
      */
-    @Test
+  
     public void testNowyTytul() {
         System.out.println("nowyTytul");
         Object[] data = null;
@@ -54,7 +54,7 @@ public class TFabrykaTest {
     /**
      * Test of nowyProdukt method, of class TFabryka.
      */
-    @Test
+    @org.junit.Test
     public void testNowyProdukt() {
         System.out.println("nowyProdukt");
         Object[] data = null;
@@ -68,8 +68,9 @@ public class TFabrykaTest {
 
     /**
      * Test of nowyKlient method, of class TFabryka.
+     * @throws java.lang.Exception
      */
-    @Test
+    @org.junit.Test
     public void testNowyKlient() throws Exception {
         System.out.println("nowyKlient");
         Object[] data = null;
@@ -84,7 +85,7 @@ public class TFabrykaTest {
     /**
      * Test of nowaFaktura method, of class TFabryka.
      */
-    @Test
+ 
     public void testNowaFaktura() {
         System.out.println("nowaFaktura");
         Object[] data = null;
@@ -99,7 +100,7 @@ public class TFabrykaTest {
     /**
      * Test of noweWypozyczenie method, of class TFabryka.
      */
-    @Test
+   
     public void testNoweWypozyczenie() {
         System.out.println("noweWypozyczenie");
         Object[] data = null;
@@ -114,7 +115,7 @@ public class TFabrykaTest {
     /**
      * Test of nowaPozycja method, of class TFabryka.
      */
-    @Test
+ 
     public void testNowaPozycja() {
         System.out.println("nowaPozycja");
         Object[] data = null;
@@ -129,7 +130,7 @@ public class TFabrykaTest {
     /**
      * Test of nowePotwierdzenie method, of class TFabryka.
      */
-    @Test
+
     public void testNowePotwierdzenie() {
         System.out.println("nowePotwierdzenie");
         Object[] data = null;
