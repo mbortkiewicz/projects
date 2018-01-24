@@ -1,5 +1,6 @@
 package mypackage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TKartoteka {
@@ -8,6 +9,7 @@ public class TKartoteka {
 	public TKartoteka()
 	{
 		super();
+                klienci = new ArrayList();
 	}
 	
 	public TKlient szukaj_TKlienta(TKlient klient) 

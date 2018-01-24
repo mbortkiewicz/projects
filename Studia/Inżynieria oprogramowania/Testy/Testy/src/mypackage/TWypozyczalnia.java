@@ -7,14 +7,18 @@ import java.util.Date;
 
 public class TWypozyczalnia {
 
-	private TKartoteka kartoteka;
-	private TMagazyn magazyn;
+	public TKartoteka kartoteka;
+	public TMagazyn magazyn;
 	private List<TFaktura> faktury;
 	private List<TWypozyczenie> wypozyczenia;
 	
 	public TWypozyczalnia()
 	{
 		super();
+                kartoteka = new TKartoteka();
+                magazyn = new TMagazyn();
+                faktury = new ArrayList();
+                wypozyczenia = new ArrayList();
 	}
 	
 	public static void main(String[] t) throws Exception
@@ -22,7 +26,7 @@ public class TWypozyczalnia {
 		return;
 	}
 	
-	public boolean zwrot(TKlient klient, TProdukt[] produkty)
+	public boolean zwrot(TKlient klient, TProdukt[] produkty) throws Exception
 	{
 		TWypozyczenie wypozyczenie = szukaj_TWypozyczenie(produkty[0], klient);
 		
@@ -48,7 +52,7 @@ public class TWypozyczalnia {
 		
 		for(int i=0; i < produkty.length; i++)
 		{
-			dostepnosc = magazyn.sprawdz_dostepnosc(produkty[i]);
+			dostepnosc = !magazyn.sprawdz_dostepnosc(produkty[i]);
 			
 			if(dostepnosc == false) return false;
 		}
@@ -90,7 +94,7 @@ public class TWypozyczalnia {
 		return null;
 	}
 	
-	public TWypozyczenie szukaj_TWypozyczenie(TProdukt produkt, TKlient klient)
+	public TWypozyczenie szukaj_TWypozyczenie(TProdukt produkt, TKlient klient) throws Exception
 	{
 		produkt = magazyn.szukaj_TProdukt(produkt);
 		
@@ -105,21 +109,23 @@ public class TWypozyczalnia {
 		
 		for(TWypozyczenie wypozyczenie : wypozyczenia)
 		{
-			if(wypozyczenie.getKoniec()==null) 
+                    throw new Exception(wypozyczenie.getKoniec() == null ? "null" : "inne");
+			/*if(wypozyczenie.getKoniec()==null) 
 			{
 				if(produkt != null)
 				{
 					for(TPozycja pozycja : wypozyczenie.getPozycje())
 					{
-						if(pozycja.getProdukt() == produkt)
+						if(pozycja.getProdukt().equals(produkt))
 							return wypozyczenie;
 					}					
 				}
 				else if(klient != null && wypozyczenie.getKlient() == klient)
 					return wypozyczenie;
-			}
+			}*/
 		}
-		return null;
+                throw new Exception("nie ma");
+		//return null;
 	}
 	
 	public boolean przyjmij_towar(TProdukt[] produkty, TWypozyczenie wypozyczenie)

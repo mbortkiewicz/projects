@@ -4,7 +4,8 @@ package testy;
 import mypackage.TTytul;
 import mypackage.TKlient;
 import mypackage.TProdukt;
-
+import mypackage.TWypozyczenie;
+import mypackage.TPozycja;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -110,6 +111,10 @@ public class Dane{
        {tytul,"" ,"" , true, TProdukt.Nosnik.Bluray},            
     };
     
+    public float ceny[] = new float[]{
+        31.5f, 16.1f, 12.6f, 31.5f, 20.3f, 9.1f, 10.0f
+    };
+    
     public TProdukt[] produkty()
     {
         TProdukt p[] = new TProdukt[8];
@@ -119,49 +124,69 @@ public class Dane{
         p[0].setRef(456123);
         p[0].setStawka(4.5f);
         p[0].setNosnik(TProdukt.Nosnik.Bluray);
+        p[0].setWypozyczony(false);
         
         p[1] = new TProdukt();
         p[1].setTytul(tytul);
         p[1].setRef(789456);
         p[1].setStawka(2.3f);
-        p[1].setNosnik(TProdukt.Nosnik.DVD);
+        p[1].setNosnik(TProdukt.Nosnik.DVD);        
+        p[1].setWypozyczony(false);
         
         p[2] = new TProdukt();
         p[2].setTytul(tytul);
         p[2].setRef(562415);
         p[2].setStawka(1.8f);
         p[2].setNosnik(TProdukt.Nosnik.VHS);
+        p[2].setWypozyczony(false);
         
         p[3] = new TProdukt();
         p[3].setTytul(tytul);
         p[3].setRef(478632);
         p[3].setStawka(4.5f);
         p[3].setNosnik(TProdukt.Nosnik.Bluray);
+        p[3].setWypozyczony(false);
         
         p[4] = new TProdukt();
         p[4].setTytul(tytul);
         p[4].setRef(451203);
         p[4].setStawka(2.9f);
-        p[4].setNosnik(TProdukt.Nosnik.DVD);     
+        p[4].setNosnik(TProdukt.Nosnik.DVD);
+        p[4].setWypozyczony(false);
         
         p[5] = new TProdukt();
         p[5].setTytul(tytul);
         p[5].setRef(412563);
         p[5].setStawka(1.3f);
         p[5].setNosnik(TProdukt.Nosnik.VHS);
+        p[5].setWypozyczony(false);
         
         p[6] = new TProdukt();
         p[6].setTytul(tytul);
         p[6].setRef(456123);
         p[6].setStawka(2.7f);
         p[6].setNosnik(TProdukt.Nosnik.DVD);
+        p[6].setWypozyczony(false);
         
         p[7] = new TProdukt();
         p[7].setTytul(tytul);
         p[7].setRef(0);
         p[7].setStawka(0);
-        p[7].setNosnik(TProdukt.Nosnik.Bluray);   
+        p[7].setNosnik(TProdukt.Nosnik.Bluray);
+        p[7].setWypozyczony(false);
         
         return p;
+    }
+    
+    public TPozycja[] pozycje()
+    {
+        TPozycja pozycje[] = new TPozycja[6];
+        
+    }
+    
+    public TWypozyczenie[] wypozyczenia()
+    {
+        TWypozyczenie wypozyczenie[] = new TWypozyczenie[6];
+        return wypozyczenie;
     }
 }

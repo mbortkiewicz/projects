@@ -28,22 +28,22 @@ public class TKlientTest {
         dane = new Dane();
     }
 
-
     /**
      * Test of equals method, of class TKlient.
      */
     @Test
     public void testEquals() {
         System.out.println("equals");
-        Object obj = null;
-        TKlient instance = new TKlient();
-        boolean expResult = false;
+        TKlient instance = dane.klienci()[0];
         for(int i =0; i < 8; i ++)
         {
-            boolean result = instance.equals(obj);
-            assertEquals(expResult, result);
+            boolean result = instance.equals(dane.klienci()[i]);
+            if(i == 0)
+                assertEquals(true, result);
+            else
+                assertEquals(false, result);
         }
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }    
 }

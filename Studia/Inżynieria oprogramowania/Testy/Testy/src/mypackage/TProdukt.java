@@ -2,6 +2,10 @@ package mypackage;
 
 
 public class TProdukt {
+
+    private Exception Exception(String nie_znaleziono) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 	
 	public enum Nosnik {
 		VHS,

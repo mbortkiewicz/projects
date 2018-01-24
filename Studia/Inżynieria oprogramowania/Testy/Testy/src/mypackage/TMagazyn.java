@@ -1,5 +1,6 @@
 package mypackage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TMagazyn {
@@ -7,6 +8,11 @@ public class TMagazyn {
 	private List<TProdukt> produkty;
 	private List<TTytul> tytuly;
 	
+        public TMagazyn(){
+            produkty = new ArrayList();
+            tytuly = new ArrayList();
+        }
+        
 	public TProdukt szukaj_TProdukt(TProdukt produkt)
 	{
 		for(TProdukt p : produkty)
