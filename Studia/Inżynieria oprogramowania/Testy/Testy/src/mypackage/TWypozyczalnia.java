@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Date;
+import java.util.LinkedList;
 
 public class TWypozyczalnia {
 
 	public TKartoteka kartoteka;
 	public TMagazyn magazyn;
 	private List<TFaktura> faktury;
-	private List<TWypozyczenie> wypozyczenia;
+	public List<TWypozyczenie> wypozyczenia;
 	
 	public TWypozyczalnia()
 	{
@@ -18,7 +19,7 @@ public class TWypozyczalnia {
                 kartoteka = new TKartoteka();
                 magazyn = new TMagazyn();
                 faktury = new ArrayList();
-                wypozyczenia = new ArrayList();
+                wypozyczenia = new LinkedList();
 	}
 	
 	public static void main(String[] t) throws Exception
@@ -109,8 +110,7 @@ public class TWypozyczalnia {
 		
 		for(TWypozyczenie wypozyczenie : wypozyczenia)
 		{
-                    throw new Exception(wypozyczenie.getKoniec() == null ? "null" : "inne");
-			/*if(wypozyczenie.getKoniec()==null) 
+			if(wypozyczenie.getKoniec()==null) 
 			{
 				if(produkt != null)
 				{
@@ -122,10 +122,9 @@ public class TWypozyczalnia {
 				}
 				else if(klient != null && wypozyczenie.getKlient() == klient)
 					return wypozyczenie;
-			}*/
+			}
 		}
-                throw new Exception("nie ma");
-		//return null;
+		return null;
 	}
 	
 	public boolean przyjmij_towar(TProdukt[] produkty, TWypozyczenie wypozyczenie)

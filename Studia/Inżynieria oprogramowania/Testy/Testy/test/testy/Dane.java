@@ -1,6 +1,12 @@
 package testy;
 
 
+import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
 import mypackage.TTytul;
 import mypackage.TKlient;
 import mypackage.TProdukt;
@@ -181,12 +187,86 @@ public class Dane{
     public TPozycja[] pozycje()
     {
         TPozycja pozycje[] = new TPozycja[6];
+        pozycje[0] = new TPozycja();
+        pozycje[0].setProdukt(produkty()[0]);
+        pozycje[0].setStawka(produkty()[0].getStawka());
+        pozycje[0].setOddane(false);
         
+        pozycje[1] = new TPozycja();
+        pozycje[1].setProdukt(produkty()[1]);
+        pozycje[1].setStawka(produkty()[1].getStawka());
+        pozycje[1].setOddane(false);
+        
+        pozycje[2] = new TPozycja();
+        pozycje[2].setProdukt(produkty()[2]);
+        pozycje[2].setStawka(produkty()[2].getStawka());
+        pozycje[2].setOddane(false);
+        
+        pozycje[3] = new TPozycja();
+        pozycje[3].setProdukt(produkty()[3]);
+        pozycje[3].setStawka(produkty()[3].getStawka());
+        pozycje[3].setOddane(false);
+        
+        pozycje[4] = new TPozycja();
+        pozycje[4].setProdukt(produkty()[4]);
+        pozycje[4].setStawka(produkty()[4].getStawka());
+        pozycje[4].setOddane(false);
+        
+        pozycje[5] = new TPozycja();
+        pozycje[5].setProdukt(produkty()[5]);
+        pozycje[5].setStawka(produkty()[5].getStawka());
+        pozycje[5].setOddane(false);
+
+        return pozycje;
     }
     
-    public TWypozyczenie[] wypozyczenia()
+    public TWypozyczenie[] wypozyczenia() throws ParseException
     {
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         TWypozyczenie wypozyczenie[] = new TWypozyczenie[6];
+        
+        wypozyczenie[0] = new TWypozyczenie();
+        wypozyczenie[0].setPozycje(Arrays.asList(new TPozycja[] {pozycje()[0]}));
+        wypozyczenie[0].setIloscDni(10);
+        wypozyczenie[0].setKlient(klienci()[0]);
+        wypozyczenie[0].setPoczatek(df.parse("21.01.2018"));
+        wypozyczenie[0].setKoniec(null);
+        
+                wypozyczenie[1] = new TWypozyczenie();
+        wypozyczenie[1].setPozycje(Arrays.asList(new TPozycja[] {pozycje()[1]}));
+        wypozyczenie[1].setIloscDni(10);
+        wypozyczenie[1].setKlient(klienci()[1]);
+        wypozyczenie[1].setPoczatek(df.parse("22.01.2018"));
+        wypozyczenie[1].setKoniec(null);
+        
+                wypozyczenie[2] = new TWypozyczenie();
+        wypozyczenie[2].setPozycje(Arrays.asList(new TPozycja[] {pozycje()[2]}));
+        wypozyczenie[2].setIloscDni(10);
+        wypozyczenie[2].setKlient(klienci()[2]);
+        wypozyczenie[2].setPoczatek(df.parse("23.01.2018"));
+        wypozyczenie[2].setKoniec(null);
+        
+                wypozyczenie[3] = new TWypozyczenie();
+        wypozyczenie[3].setPozycje(Arrays.asList(new TPozycja[] {pozycje()[3]}));
+        wypozyczenie[3].setIloscDni(10);
+        wypozyczenie[3].setKlient(klienci()[3]);
+        wypozyczenie[3].setPoczatek(df.parse("24.01.2018"));
+        wypozyczenie[3].setKoniec(null);
+        
+                wypozyczenie[4] = new TWypozyczenie();
+        wypozyczenie[4].setPozycje(Arrays.asList(new TPozycja[] {pozycje()[4]}));
+        wypozyczenie[4].setIloscDni(10);
+        wypozyczenie[4].setKlient(klienci()[4]);
+        wypozyczenie[4].setPoczatek(df.parse("21.01.2018"));
+        wypozyczenie[4].setKoniec(null);
+        
+                wypozyczenie[5] = new TWypozyczenie();
+        wypozyczenie[5].setPozycje(Arrays.asList(new TPozycja[] {pozycje()[5]}));
+        wypozyczenie[5].setIloscDni(10);
+        wypozyczenie[5].setKlient(klienci()[5]);
+        wypozyczenie[5].setPoczatek(df.parse("22.01.2018"));
+        wypozyczenie[5].setKoniec(null); 
+        
         return wypozyczenie;
     }
 }
