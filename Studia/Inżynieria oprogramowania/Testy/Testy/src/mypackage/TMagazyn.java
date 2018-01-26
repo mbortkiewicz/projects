@@ -70,7 +70,7 @@ public class TMagazyn {
 		produkt = szukaj_TProdukt(produkt);
 		if(produkt == null)
 			return false;
-		return produkt.getWypozyczony();
+		return !produkt.getWypozyczony();
 	}
 	
 }

@@ -53,7 +53,7 @@ public class TWypozyczalnia {
 		
 		for(int i=0; i < produkty.length; i++)
 		{
-			dostepnosc = !magazyn.sprawdz_dostepnosc(produkty[i]);
+			dostepnosc = magazyn.sprawdz_dostepnosc(produkty[i]);
 			
 			if(dostepnosc == false) return false;
 		}
